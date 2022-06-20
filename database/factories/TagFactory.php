@@ -15,10 +15,10 @@ class TagFactory extends Factory
     public function definition()
     {
         $title = $this->faker->sentence(rand(1, 3));
-        
+
         return [
             //
-            'title' => $title,
+            'name' => $title,
             'slug' => Str::slug($title),
         ];
     }

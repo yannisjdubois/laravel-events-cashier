@@ -21,8 +21,8 @@ class EventFactory extends Factory
             'slug' => Str::slug($title),
             'content' => $this->faker->sentence(rand(2, 3)),
             'premium' => $this->faker->boolean(25),
-            'starts_at' => $this->faker->dateTimeBetween('nom', '+ 2months'),
-            'ends_at' => $this->faker->dateTimeBetween('+ 3months', '+ 4months'),
+            'starts_at' => $this->faker->dateTimeBetween('nom', '+2 months'),
+            'ends_at' => $this->faker->dateTimeBetween('+3 months', '+4 months'),
         ];
     }
 }
