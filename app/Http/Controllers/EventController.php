@@ -50,7 +50,16 @@ class EventController extends Controller
     public function store(Request $request)
     {
         //
-        
+        $authed_user = auth()->user();
+
+        $authed_user->events()->create([
+            'title' => $request->title,
+            'content' => $request->content,
+            'premium' => $request->filled('premium'),
+            'starts_at' => $request->starts_at,
+            'ends_at' => $request->ends_at,
+            
+        ]);
     }
 
     /**
