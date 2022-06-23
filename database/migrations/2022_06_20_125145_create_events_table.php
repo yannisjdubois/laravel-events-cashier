@@ -19,9 +19,9 @@ class CreateEventsTable extends Migration
             $table->string('title');
             $table->string('slug');
             $table->text('content');
-            $table->boolean('premium');
-            $table->timestamp('starts_at');
-            $table->timestamp('ends_at');
+            $table->boolean('premium')->default(false);
+            $table->timestamp('starts_at')->nullable();
+            $table->timestamp('ends_at')->nullable();
 
             $table->foreignIdFor(User::class);
 

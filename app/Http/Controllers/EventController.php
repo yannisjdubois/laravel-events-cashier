@@ -54,17 +54,23 @@ class EventController extends Controller
         //
         $authed_user = auth()->user();
 
-        $authed_user->events()->create([
+        $event = $authed_user->events()->create([
             'title' => $request->title,
             'slug' => Str::slug($request->title),
             'content' => $request->content,
             'premium' => $request->filled('premium'),
             'starts_at' => $request->starts_at,
             'ends_at' => $request->ends_at,
+
+            
             
         ]);
 
+       
+
         $tags = explode(',', $request->tags);
+
+        
 
         foreach ($tags as $inputTag) {
             # code...
@@ -78,6 +84,8 @@ class EventController extends Controller
 
             $event->tags()->attach($tag->id);
         }
+
+       
 
         return redirect()->route('event.index');
     }
